@@ -1,0 +1,53 @@
+*{
+    font-family: "Momo Trust Sans", sans-serif;
+}
+
+body{
+    background: #7a5133;
+    background: -webkit-linear-gradient(90deg, rgba(122, 81, 51, 1) 0%, rgba(255, 180, 41, 1) 50%, rgba(122, 81, 51, 1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(122, 81, 51, 1) 0%, rgba(255, 180, 41, 1) 50%, rgba(122, 81, 51, 1) 100%);
+    background: linear-gradient(90deg, rgba(122, 81, 51, 1) 0%, rgba(255, 180, 41, 1) 50%, rgba(122, 81, 51, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7A5133", endColorstr="#7A5133", GradientType=1);
+}
+
+h1{
+    color: #333;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 69vw;
+}
+
+header h1{
+    font-family: "Stack Sans Notch", sans-serif;
+    color:#fdb683;
+}
+
+header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #f0c1a0;
+    border: none;
+    padding: 3.5px 8px;
+    border-radius: 12px;
+}
+
+header button:hover{
+    background-color: #ffbe90;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+header button:active{
+    transform: scale(0.975);
+    opacity: 0.8;
+}
+
+main{
+    padding: 1.2%;
+}
