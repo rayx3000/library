@@ -17,12 +17,16 @@ function Book(id, title, author, year, pages, genre, status){
 function addBookToLibrary(){}
 
 const addBookButton = document.getElementById("addBookButton");
+const dialog = document.querySelector("dialog")
 const booksGrid = document.querySelector(".books-grid");
+const closeDialog = document.getElementById("close");
+
+addBookButton.addEventListener("click", () => dialog.showModal());
+closeDialog.addEventListener("click", () => dialog.close());
 
 let books = '';
 
 myLibrary.forEach(book => {
-
     const isTrue = book.status ? "Done" : "Unread";
 
     books += `
