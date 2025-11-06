@@ -15,3 +15,26 @@ function Book(id, title, author, year, pages, genre, status){
 }
 
 function addBookToLibrary(){}
+
+const addBookButton = document.getElementById("addBookButton");
+const booksGrid = document.querySelector(".books-grid");
+
+let books = '';
+
+myLibrary.forEach(book => {
+
+    const isTrue = book.status ? "Done" : "Unread";
+
+    books += `
+    <div class="book">
+        <h2 id="book-title">${book.title}</h2>
+        <h3 id="book-author">${book.author}</h3>
+        <h4>Year: <span id="book-year">${book.year}</span></h4>
+        <p>Pages: <span id="book-pages">${book.pages}</span></p>
+        <p>Genre: <span id="book-genre">${book.genre}</span></p>
+        <button id="status">${isTrue}</button>
+    </div>
+    `
+});
+
+booksGrid.innerHTML = books;
