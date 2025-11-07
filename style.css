@@ -140,6 +140,10 @@ form button:active{
     transform: scale(0.92);
 }
 
+#otherInputWrapper{
+    display: none;
+}
+
 main{
     padding: 1.2%;
 }

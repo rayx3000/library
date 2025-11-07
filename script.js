@@ -24,6 +24,16 @@ const closeDialog = document.getElementById("close");
 addBookButton.addEventListener("click", () => dialog.showModal());
 closeDialog.addEventListener("click", () => dialog.close());
 
+document.getElementById('book-genre').addEventListener('change', function() {
+    var wrapper = document.getElementById('otherInputWrapper');
+    
+    if (this.value === 'Other') {
+        wrapper.style.display = 'block';
+    } else {
+        wrapper.style.display = 'none';
+    }
+});
+
 let books = '';
 
 myLibrary.forEach(book => {
