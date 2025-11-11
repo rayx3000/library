@@ -14,12 +14,22 @@ function Book(id, title, author, year, pages, genre, status){
     this.status = status;
 }
 
-function addBookToLibrary(){}
+function addBookToLibrary(){
+    const bookTitle = document.getElementById("book-title").value;
+    const bookAuthor = document.getElementById("book-author").value;
+    const bookYear = document.getElementById("book-year").value;
+    const bookPages = document.getElementById("book-pages").value;
+    const bookGenre = document.getElementById("book-genre").value;
+
+    console.log(bookTitle, bookAuthor, bookYear, bookPages, bookGenre);
+
+}
 
 const addBookButton = document.getElementById("addBookButton");
 const dialog = document.querySelector(".dialog-form");
 const booksGrid = document.querySelector(".books-grid");
 const closeDialog = document.getElementById("close");
+const addButton = document.getElementById("add");
 
 addBookButton.addEventListener("click", () => dialog.showModal());
 closeDialog.addEventListener("click", () => dialog.close());
@@ -66,6 +76,7 @@ myLibrary.forEach(book => {
 
 booksGrid.innerHTML = books;
 
+addButton.addEventListener("click", () => addBookToLibrary());
 
 document.querySelectorAll('.remove-book-btn').forEach(button => {
     button.addEventListener('click', () => {
