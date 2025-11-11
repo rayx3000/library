@@ -99,11 +99,6 @@ form input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-/* Hide default spinners in Firefox */
-form input[type="number"] {
-    -moz-appearance: textfield;
-}
-
 form button{
     width: 6.5vw;
     padding: 2%;

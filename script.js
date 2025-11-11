@@ -97,11 +97,35 @@ document.querySelectorAll('.remove-yes').forEach(button => {
 });
 
 document.querySelectorAll('.status-btn').forEach(button => {
+    const bookCard = button.closest('.book');
+    let bookStatus = bookCard.dataset.status;
+
+    if (button.textContent === "Done") {
+        button.style.backgroundColor = "green";
+    } else {
+        button.style.backgroundColor = "orange";
+    }
+
+
     button.addEventListener('click', () => {
+        const bookCard = button.closest('.book');
+        const bookId = bookCard.dataset.bookId; 
+
+        const bookToUpdate = myLibrary.find(book => book.id === bookId);
+
         if (button.textContent === "Done") {
             button.textContent = "Unread";
+            button.style.backgroundColor = "orange";
+            if (bookToUpdate) {
+                bookToUpdate.status = false;
+            }
         } else {
             button.textContent = "Done";
+            button.style.backgroundColor = "green";
+            if (bookToUpdate) {
+                bookToUpdate.status = true;
+            }
         }
+        
     });
 });
