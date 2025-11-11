@@ -17,7 +17,7 @@ function Book(id, title, author, year, pages, genre, status){
 function addBookToLibrary(){}
 
 const addBookButton = document.getElementById("addBookButton");
-const dialog = document.querySelector("dialog")
+const dialog = document.querySelector(".dialog-form");
 const booksGrid = document.querySelector(".books-grid");
 const closeDialog = document.getElementById("close");
 
@@ -41,6 +41,16 @@ myLibrary.forEach(book => {
 
     books += `
     <div class="book">
+        <dialog class="dialog-yes-no">
+            <div class="yesNoText">
+                Are you sure that you want remove this book in library?
+            </div>
+            <div class="yesNoButtons">
+                <button id="yes">Yes</button>
+                <button id="cancel">Cancel</button>
+            </div>    
+        </dialog>
+        <span class="material-symbols-outlined" id="removeBook">close</span>
         <h2 id="book-title">${book.title}</h2>
         <h3 id="book-author">${book.author}</h3>
         <h4>Year: <span id="book-year">${book.year}</span></h4>

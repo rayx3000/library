@@ -123,19 +123,19 @@ form button:active{
     opacity: 0.8;
 }
 
-#close{
+#close, #removeBook{
     position: absolute;
     top: 8px;
     right: 8px;
     color: rgb(236, 38, 38);
 }
 
-#close:hover{
+#close:hover, #removeBook:hover{
     color: rgb(221, 90, 90);
     cursor: pointer;
 }
 
-#close:active{
+#close:active, #removeBook:active{
     opacity: 0.82;
     transform: scale(0.92);
 }
