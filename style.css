@@ -123,19 +123,19 @@ form button:active{
     opacity: 0.8;
 }
 
-#close, #removeBook{
+#close, .remove-book-btn, .close{
     position: absolute;
     top: 8px;
     right: 8px;
     color: rgb(236, 38, 38);
 }
 
-#close:hover, #removeBook:hover{
+#close:hover, .remove-book-btn:hover, .close{
     color: rgb(221, 90, 90);
     cursor: pointer;
 }
 
-#close:active, #removeBook:active{
+#close:active, .remove-book-btn:active, .close{
     opacity: 0.82;
     transform: scale(0.92);
 }
@@ -150,7 +150,7 @@ main{
 
 .books-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
@@ -193,4 +193,11 @@ main{
 .book button:active{
     opacity: 0.78;
     transform: scale(1.1);
+}
+
+.dialog-yes-no div{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 12px;
 }

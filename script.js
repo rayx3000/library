@@ -1,4 +1,4 @@
-const myLibrary = [
+let myLibrary = [
     new Book("cbd0c7e1-88ad-4712-b75c-aa269e0b7e39", "His Secret", "_dat_one_girl_", 2023, 45, "Romance", true),
     new Book("28185fec-4533-41be-9008-aaa6a21bb39c", "Frankenstein or, The Modern Prometheus", "Mary Shelley", 1818, 280, "Sci-Fi", false),
     new Book("9d396fb2-0f28-4ee5-9753-6433b286218f", "Harry Potter and the Chamber of Secrets", "J. K. Rowling", 1998, 251, "Fantasy", false)
@@ -24,6 +24,7 @@ const closeDialog = document.getElementById("close");
 addBookButton.addEventListener("click", () => dialog.showModal());
 closeDialog.addEventListener("click", () => dialog.close());
 
+
 document.getElementById('book-genre').addEventListener('change', function() {
     var wrapper = document.getElementById('otherInputWrapper');
     
@@ -40,25 +41,67 @@ myLibrary.forEach(book => {
     const isTrue = book.status ? "Done" : "Unread";
 
     books += `
-    <div class="book">
+    <div class="book" data-book-id="${book.id}">
         <dialog class="dialog-yes-no">
-            <div class="yesNoText">
-                Are you sure that you want remove this book in library?
-            </div>
-            <div class="yesNoButtons">
-                <button id="yes">Yes</button>
-                <button id="cancel">Cancel</button>
+            <span class="material-symbols-outlined close">close</span>
+            <div>
+                <div class="yesNoText">
+                    Are you sure that you want remove this book in library?
+                </div>
+                <div class="yesNoButtons">
+                    <button class="remove-yes">Yes</button>
+                </div>
             </div>    
         </dialog>
-        <span class="material-symbols-outlined" id="removeBook">close</span>
-        <h2 id="book-title">${book.title}</h2>
-        <h3 id="book-author">${book.author}</h3>
-        <h4>Year: <span id="book-year">${book.year}</span></h4>
-        <p>Pages: <span id="book-pages">${book.pages}</span></p>
-        <p>Genre: <span id="book-genre">${book.genre}</span></p>
-        <button id="status">${isTrue}</button>
+        <span class="material-symbols-outlined remove-book-btn">close</span>
+        <h2 class="book-title">${book.title}</h2>
+        <h3 class="book-author">${book.author}</h3>
+        <h4>Year: <span class="book-year">${book.year}</span></h4>
+        <p>Pages: <span class="book-pages">${book.pages}</span></p>
+        <p>Genre: <span class="book-genre">${book.genre}</span></p>
+        <button class="status-btn">${isTrue}</button>
     </div>
     `
 });
 
 booksGrid.innerHTML = books;
+
+
+document.querySelectorAll('.remove-book-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const dialog = button.closest('.book').querySelector('.dialog-yes-no');
+        dialog.showModal();
+    });
+});
+
+document.querySelectorAll('.close').forEach(button => {
+    button.addEventListener('click', () => {
+        const dialog = button.closest('.dialog-yes-no');
+        dialog.close();
+    });
+});
+
+document.querySelectorAll('.remove-yes').forEach(button => {
+    button.addEventListener('click', () => {
+        const dialog = button.closest('.dialog-yes-no');
+        dialog.close();
+        
+        const bookCard = button.closest('.book');
+
+        const bookId = bookCard.dataset.bookId;
+
+        myLibrary = myLibrary.filter(book => book.id !== bookId);
+        bookCard.remove();
+        console.log(myLibrary);
+    });
+});
+
+document.querySelectorAll('.status-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.textContent === "Done") {
+            button.textContent = "Unread";
+        } else {
+            button.textContent = "Done";
+        }
+    });
+});
