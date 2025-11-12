@@ -210,3 +210,83 @@ main{
     transform: scale(1.05);
     opacity: 0.8;
 }
+
+@media (max-width: 880px) {
+    body{
+        font-size: 0.9em;
+    }
+
+    header{
+        gap: 50vw;
+    }
+
+    .books-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    form input{
+        width: 35vw;
+    }
+
+    form select{
+        width: 36.5vw;
+    }
+}
+
+@media(max-width: 500px) {
+    body{
+        font-size: 0.8em;
+    }
+
+    header{
+        gap: 38vw;
+    }
+
+    form input, form select{
+        font-size: 0.8em;
+    }
+
+    form button{
+        padding: 5%;
+        width: 20vw;
+    }
+
+    .books-grid{
+        grid-template-columns: 75vw;
+        justify-content: center;
+    }
+
+    .add-book-text{
+        display: none;
+    }
+
+    form input{
+        width: 55vw;
+    }
+
+    form select{
+        width: 57vw;
+    }
+
+    #close, .close{
+        font-size: 0.9em;
+    }
+}
+
+@media(max-width: 425px){
+    body{
+        font-size: 0.65em;
+    }
+
+    button{
+        font-size: 0.75em;
+    }
+
+     form input{
+        width: 65vw;
+    }
+
+    form select{
+        width: 67.5vw;
+    }
+}
