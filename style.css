@@ -196,3 +196,16 @@ main{
     gap: 50px;
     padding-top: 12px;
 }
+
+.remove-yes{
+    background-color: #f0c1a0;
+}
+
+.remove-yes:hover{
+    background-color: #ffbe90;
+}
+
+.remove-yes:active{
+    transform: scale(1.05);
+    opacity: 0.8;
+}
